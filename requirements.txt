@@ -38,6 +38,6 @@ urllib3==1.26.13
 virtualenv==20.24.3
 Werkzeug==2.2.2
 whichcraft==0.6.1
-zipp==3.16.2
+zipp==3.14.0
 zope.event==4.6
 zope.interface==5.5.2
