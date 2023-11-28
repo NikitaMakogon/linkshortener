@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>Enter the link:</h1>
+<input type="text" class="longLink" placeholder="input original url">
+<input class="shortLink" type="text" placeholder="short url generated">
+<button>Save</button>
+
+<h1 class="result"></h1>
+
+
+<script>
+// error - https://loc.site/sdf/asdf/asdf
+document.getElementsByTagName('button')[0].addEventListener('click', function () {
+    let short = document.getElementsByClassName('shortLink')[0].value;
+    let long = document.getElementsByClassName('longLink')[0].value;
+    let rShort = short.replaceAll('/', '↔')
+    let rLong = long.replaceAll('/', '↔')
+    console.log(rShort)
+    console.log(rLong)
+    fetch('/savelink/' + rShort + '/' + rLong )
+    .then(data=>(data.json()))
+    .then(json=>{
+    console.log(json)
+    document.getElementsByClassName('result')[0].textContent = json.status
+
+    })
+})
+</script>
+
+
+<style>
+  body {
+  background: skyblue;
+  height: 100vh;
+  }
+  input {
+  padding: 7px 20px;
+  }
+  input:hover {
+  border-color: skyblue;
+  }
+  button {
+  padding: 7px 15px;
+  background: pink;
+  border-radius: 100px;
+  }
+</style>
+
+
+</body>
+</html>
