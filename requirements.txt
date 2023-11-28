@@ -1,3 +1,4 @@
+validators==0.21.0
 ﻿altgraph==0.17.3
 auto-py-to-exe==2.26.1
 blinker==1.6.2
