@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect
 import datetime
 import ast
 import validators
+import os
 global occasions
 occasions = []
 
@@ -83,6 +84,7 @@ def handler(link):
     # 17.10.2023
 
     return render_template("handler.html", link=link)
-
-app.run('127.0.0.1', 3007, debug=True)
+    
+port = int(os.environ.get('PORT', 5000));
+app.run('0.0.0.0', port=port, debug=True)
 
